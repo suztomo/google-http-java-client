@@ -3,7 +3,7 @@ package com.google.api.client.http.javanet;
 import static org.junit.Assert.*;
 
 import com.google.api.client.http.ByteArrayContent;
-import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.HttpContentFoo;
 import com.google.api.client.http.InputStreamContent;
 import com.google.api.client.http.LowLevelHttpResponse;
 import com.google.api.client.http.javanet.NetHttpRequest.OutputWriter;
@@ -79,7 +79,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
     request.setWriteTimeout(timeout);
     request.execute(new SleepingOutputWriter(5000L));
@@ -103,7 +103,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
 
     LowLevelHttpResponse response = request.execute();
@@ -127,7 +127,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
 
     try {
@@ -160,7 +160,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
 
     try {
@@ -193,7 +193,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
 
     try {
@@ -210,7 +210,7 @@ public class NetHttpRequestTest {
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
     InputStream is = NetHttpRequestTest.class.getClassLoader().getResourceAsStream("file.txt");
-    HttpContent content = new InputStreamContent("text/plain", is);
+    HttpContentFoo content = new InputStreamContent("text/plain", is);
     request.setStreamingContent(content);
     request.setContentEncoding("gzip");
     request.execute();
@@ -224,7 +224,7 @@ public class NetHttpRequestTest {
     MockHttpURLConnection connection = new MockHttpURLConnection(new URL(HttpTesting.SIMPLE_URL));
     connection.setRequestMethod("POST");
     NetHttpRequest request = new NetHttpRequest(connection);
-    HttpContent content =
+    HttpContentFoo content =
         new ByteArrayContent("text/plain", "sample".getBytes(StandardCharsets.UTF_8));
     request.setStreamingContent(content);
     request.setContentLength(content.getLength());
