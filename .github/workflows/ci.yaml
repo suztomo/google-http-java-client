@@ -12,7 +12,6 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 8
-    - run: java -version
     - run: >
         mvn install -B -V \
          -Duser.home=/home/runner/work/_temp/_github_home \
