@@ -13,6 +13,13 @@ jobs:
       with:
         java-version: 8
     - run: java -version
+    - name: Cache local Maven repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     - run: >
         mvn install -B -V \
          -Duser.home=/home/runner/work/_temp/_github_home \
