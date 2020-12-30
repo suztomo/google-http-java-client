@@ -31,4 +31,3 @@ jobs:
          -Dmaven.javadoc.skip=true \
          -Dgcloud.download.skip=true
     - uses: GoogleCloudPlatform/cloud-opensource-java/linkage-monitor@v1-linkagemonitor
-
