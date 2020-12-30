@@ -139,7 +139,7 @@ public class UrlEncodedContent extends AbstractHttpContent {
    * @since 1.7
    */
   public static UrlEncodedContent getContent(HttpRequest request) {
-    HttpContent content = request.getContent();
+    HttpContentFoo content = request.getContent();
     if (content != null) {
       return (UrlEncodedContent) content;
     }

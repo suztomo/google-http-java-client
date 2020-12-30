@@ -14,7 +14,7 @@
 
 package com.google.api.client.testing.http;
 
-import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.HttpContentFoo;
 import com.google.api.client.util.Beta;
 import com.google.api.client.util.Preconditions;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.io.OutputStream;
 
 /**
  * {@link Beta} <br>
- * Mock for {@link HttpContent}.
+ * Mock for {@link HttpContentFoo}.
  *
  * <p>Implementation is not thread-safe.
  *
@@ -30,7 +30,7 @@ import java.io.OutputStream;
  * @since 1.3
  */
 @Beta
-public class MockHttpContent implements HttpContent {
+public class MockHttpContent implements HttpContentFoo {
 
   /** HTTP content length or {@code -1} by default. */
   private long length = -1;

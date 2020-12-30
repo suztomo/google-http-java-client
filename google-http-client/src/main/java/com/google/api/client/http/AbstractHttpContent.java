@@ -28,7 +28,7 @@ import java.nio.charset.Charset;
  * @since 1.5
  * @author Yaniv Inbar
  */
-public abstract class AbstractHttpContent implements HttpContent {
+public abstract class AbstractHttpContent implements HttpContentFoo {
 
   /** Media type used for the Content-Type header or {@code null} for none. */
   private HttpMediaType mediaType;
@@ -105,7 +105,7 @@ public abstract class AbstractHttpContent implements HttpContent {
    * Computes and returns the content length or less than zero if not known.
    *
    * <p>Subclasses may override, but by default this computes the length by calling {@link
-   * #computeLength(HttpContent)}.
+   * #computeLength(HttpContentFoo)}.
    */
   protected long computeLength() throws IOException {
     return computeLength(this);
@@ -118,14 +118,14 @@ public abstract class AbstractHttpContent implements HttpContent {
 
   /**
    * Returns the computed content length based using {@link IOUtils#computeLength(StreamingContent)}
-   * or instead {@code -1} if {@link HttpContent#retrySupported()} is {@code false} because the
+   * or instead {@code -1} if {@link HttpContentFoo#retrySupported()} is {@code false} because the
    * stream must not be read twice.
    *
    * @param content HTTP content
    * @return computed content length or {@code -1} if retry is not supported
    * @since 1.14
    */
-  public static long computeLength(HttpContent content) throws IOException {
+  public static long computeLength(HttpContentFoo content) throws IOException {
     if (!content.retrySupported()) {
       return -1;
     }

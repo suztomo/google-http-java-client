@@ -34,7 +34,7 @@ import java.io.OutputStream;
  * @since 1.4
  * @author moshenko@google.com (Jacob Moshenko)
  */
-public abstract class AbstractInputStreamContent implements HttpContent {
+public abstract class AbstractInputStreamContent implements HttpContentFoo {
 
   /** Content type or {@code null} for none. */
   private String type;

@@ -29,7 +29,7 @@ import java.io.OutputStream;
  * @since 1.11
  * @author Yaniv Inbar
  */
-public class EmptyContent implements HttpContent {
+public class EmptyContent implements HttpContentFoo {
 
   public long getLength() throws IOException {
     return 0;

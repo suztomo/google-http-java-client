@@ -81,7 +81,7 @@ public final class HttpRequestFactory {
    * @return new HTTP request
    * @since 1.12
    */
-  public HttpRequest buildRequest(String requestMethod, GenericUrl url, HttpContent content)
+  public HttpRequest buildRequest(String requestMethod, GenericUrl url, HttpContentFoo content)
       throws IOException {
     HttpRequest request = transport.buildRequest();
     if (initializer != null) {
@@ -124,7 +124,7 @@ public final class HttpRequestFactory {
    * @param content HTTP request content or {@code null} for none
    * @return new HTTP request
    */
-  public HttpRequest buildPostRequest(GenericUrl url, HttpContent content) throws IOException {
+  public HttpRequest buildPostRequest(GenericUrl url, HttpContentFoo content) throws IOException {
     return buildRequest(HttpMethods.POST, url, content);
   }
 
@@ -135,7 +135,7 @@ public final class HttpRequestFactory {
    * @param content HTTP request content or {@code null} for none
    * @return new HTTP request
    */
-  public HttpRequest buildPutRequest(GenericUrl url, HttpContent content) throws IOException {
+  public HttpRequest buildPutRequest(GenericUrl url, HttpContentFoo content) throws IOException {
     return buildRequest(HttpMethods.PUT, url, content);
   }
 
@@ -146,7 +146,7 @@ public final class HttpRequestFactory {
    * @param content HTTP request content or {@code null} for none
    * @return new HTTP request
    */
-  public HttpRequest buildPatchRequest(GenericUrl url, HttpContent content) throws IOException {
+  public HttpRequest buildPatchRequest(GenericUrl url, HttpContentFoo content) throws IOException {
     return buildRequest(HttpMethods.PATCH, url, content);
   }
 
