@@ -31,7 +31,7 @@ import java.nio.charset.Charset;
 public abstract class AbstractHttpContent implements HttpContent {
 
   /** Media type used for the Content-Type header or {@code null} for none. */
-  private HttpMediaType mediaType;
+  private HttpMediaType mediaTypeFoo;
 
   /** Cached value for the computed length from {@link #computeLength()}. */
   private long computedLength = -1;
@@ -50,7 +50,7 @@ public abstract class AbstractHttpContent implements HttpContent {
    * @since 1.10
    */
   protected AbstractHttpContent(HttpMediaType mediaType) {
-    this.mediaType = mediaType;
+    this.mediaTypeFoo = mediaType;
   }
 
   /**
@@ -70,7 +70,7 @@ public abstract class AbstractHttpContent implements HttpContent {
    * @since 1.10
    */
   public final HttpMediaType getMediaType() {
-    return mediaType;
+    return mediaTypeFoo;
   }
 
   /**
@@ -82,7 +82,7 @@ public abstract class AbstractHttpContent implements HttpContent {
    * @since 1.10
    */
   public AbstractHttpContent setMediaType(HttpMediaType mediaType) {
-    this.mediaType = mediaType;
+    this.mediaTypeFoo = mediaType;
     return this;
   }
 
@@ -92,13 +92,13 @@ public abstract class AbstractHttpContent implements HttpContent {
    * @since 1.10
    */
   protected final Charset getCharset() {
-    return mediaType == null || mediaType.getCharsetParameter() == null
+    return mediaTypeFoo == null || mediaTypeFoo.getCharsetParameter() == null
         ? Charsets.ISO_8859_1
-        : mediaType.getCharsetParameter();
+        : mediaTypeFoo.getCharsetParameter();
   }
 
   public String getType() {
-    return mediaType == null ? null : mediaType.build();
+    return mediaTypeFoo == null ? null : mediaTypeFoo.build();
   }
 
   /**
