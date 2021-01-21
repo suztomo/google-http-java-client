@@ -73,7 +73,7 @@ public class MultipartContent extends AbstractHttpContent {
           .setContentLength(null)
           .set("Content-Transfer-Encoding", null);
       // analyze the content
-      HttpContent content = part.content;
+      HttpContentFoo content = part.content;
       StreamingContent streamingContent = null;
       if (content != null) {
         headers.set("Content-Transfer-Encoding", Arrays.asList("binary"));
@@ -168,9 +168,9 @@ public class MultipartContent extends AbstractHttpContent {
    * <p>Overriding is only supported for the purpose of calling the super implementation and
    * changing the return type, but nothing else.
    */
-  public MultipartContent setContentParts(Collection<? extends HttpContent> contentParts) {
+  public MultipartContent setContentParts(Collection<? extends HttpContentFoo> contentParts) {
     this.parts = new ArrayList<>(contentParts.size());
-    for (HttpContent contentPart : contentParts) {
+    for (HttpContentFoo contentPart : contentParts) {
       addPart(new Part(contentPart));
     }
     return this;
@@ -202,7 +202,7 @@ public class MultipartContent extends AbstractHttpContent {
   public static final class Part {
 
     /** HTTP content or {@code null} for none. */
-    HttpContent content;
+    HttpContentFoo content;
 
     /** HTTP headers or {@code null} for none. */
     HttpHeaders headers;
@@ -215,7 +215,7 @@ public class MultipartContent extends AbstractHttpContent {
     }
 
     /** @param content HTTP content or {@code null} for none */
-    public Part(HttpContent content) {
+    public Part(HttpContentFoo content) {
       this(null, content);
     }
 
@@ -223,19 +223,19 @@ public class MultipartContent extends AbstractHttpContent {
      * @param headers HTTP headers or {@code null} for none
      * @param content HTTP content or {@code null} for none
      */
-    public Part(HttpHeaders headers, HttpContent content) {
+    public Part(HttpHeaders headers, HttpContentFoo content) {
       setHeaders(headers);
       setContent(content);
     }
 
     /** Sets the HTTP content or {@code null} for none. */
-    public Part setContent(HttpContent content) {
+    public Part setContent(HttpContentFoo content) {
       this.content = content;
       return this;
     }
 
     /** Returns the HTTP content or {@code null} for none. */
-    public HttpContent getContent() {
+    public HttpContentFoo getContent() {
       return content;
     }
 

@@ -130,7 +130,7 @@ public final class HttpRequest {
   private boolean curlLoggingEnabled = true;
 
   /** HTTP request content or {@code null} for none. */
-  private HttpContent content;
+  private HttpContentFoo content;
 
   /** HTTP transport. */
   private final HttpTransport transport;
@@ -272,7 +272,7 @@ public final class HttpRequest {
    *
    * @since 1.5
    */
-  public HttpContent getContent() {
+  public HttpContentFoo getContent() {
     return content;
   }
 
@@ -281,7 +281,7 @@ public final class HttpRequest {
    *
    * @since 1.5
    */
-  public HttpRequest setContent(HttpContent content) {
+  public HttpRequest setContent(HttpContentFoo content) {
     this.content = content;
     return this;
   }

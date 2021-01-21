@@ -26,7 +26,7 @@ import java.io.OutputStream;
  * @since 1.0
  * @author Yaniv Inbar
  */
-public interface HttpContent extends StreamingContent {
+public interface HttpContentFoo extends StreamingContent {
 
   /** Returns the content length or less than zero if not known. */
   long getLength() throws IOException;
@@ -43,3 +43,4 @@ public interface HttpContent extends StreamingContent {
 
   void writeTo(OutputStream out) throws IOException;
 }
+  
